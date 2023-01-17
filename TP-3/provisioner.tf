@@ -51,7 +51,7 @@ resource "aws_instance" "myec2" {
   instance_type          = var.instancetype
   key_name               = "devops-koni"
   tags                   = var.aws_common_tags
-  vpc_security_group_ids = ["$(aws_security_group.koni-sg.id)"]
+  security_groups = ["${aws_security_group.koni-sg.name}"]
 
   connection {
     type        = "ssh"
